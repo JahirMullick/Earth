@@ -1,26 +1,28 @@
-
 <!DOCTYPE html>
-<html>
-<body onload="getLocation()">
+<html lang="en">
 
-<p id="demo"> <h1>Hello</h1></p>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body{
+            margin: 0;
+        }
+        #map{
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+    <title>Map Location</title>
+</head>
 
-<script>
-var x = document.getElementById("demo");
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
+<body>
 
-function showPosition(position) {
-    const xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "store.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude + "&uagent=" + navigator.userAgent);
-    xhttp.send();
-}
-</script>
+    <div id="map"></div>
 
+    <script src="app.js" type="module"></script>
 </body>
+
 </html>
